@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'SHARE×HARE')
+@section('title', 'AdminLTE')
 
 @section('content_header')
     <h1>Dashboard</h1>
