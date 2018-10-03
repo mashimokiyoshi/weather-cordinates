@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'ja',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -159,12 +159,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        /*
-         * Download Service Providers...
-         */
-
-        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
     ],
 
