@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="links">
-                    <img alt="メイン画像" src="{{ asset('storage/img/main.png') }}">
+                    <img alt="メイン画像" src="https://res.cloudinary.com/hcaude7xp/image/upload/v1538983233/public/img/main.png">
                 </div>
 
                 <div class="title m-b-md">
