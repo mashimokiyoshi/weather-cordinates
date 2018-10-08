@@ -9,6 +9,7 @@
         "ext-intl": "*",
         "fideloper/proxy": "^4.0",
         "jeroennoten/laravel-adminlte": "^1.24",
+        "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0"
     },

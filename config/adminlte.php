@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>SHARE</b>&HARE',
+    'logo' => 'SHARE&HARE',
 
     'logo_mini' => '<b>S</b>&H',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue-light',
+    'skin' => 'black-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => null,
+    'layout' => 'top-nav',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,40 +110,34 @@ return [
     'menu' => [
         'メニュー',
         [
-            'text' => 'ホーム',
-            'url'  => 'admin/pages',
-            'icon' => 'file',
+            'text' => 'HOME',
+            'url'  => 'home',
+            'icon' => 'home',
         ],
         [
-            'text' => 'フィード',
-            'url'  => 'admin/settings',
+            'text' => 'FEED',
+            'url'  => 'feed',
+            'icon' => 'feed',
+        ],
+        [
+            'text' => 'POST',
+            'url'  => 'post/new',
+            'icon' => 'plus-square',
+        ],
+        [
+            'text' => 'MYPAGE',
+            'url'  => 'user',
             'icon' => 'user',
         ],
         [
-            'text' => '投稿',
-            'url'  => 'admin/settings',
+            'text' => 'SETTING',
+            'url'  => 'user/info',
             'icon' => 'lock',
         ],
         [
-            'text'    => 'マイページ',
-            'icon'    => 'user',
-        ],
-        [
-            'text'    => '設定',
-            'icon'    => 'lock',
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
+            'text' => 'LOGOUT',
+            'url'  => '/',
+            'icon' => 'power-off',
         ],
     ],
 

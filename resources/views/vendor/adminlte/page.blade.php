@@ -22,23 +22,23 @@
             <nav class="navbar navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="navbar-brand">
+                        <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="navbar-brand" style="border:0px; padding: 15px; font-size:25px; color: #636b6f;">
                             {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
                         </a>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" style="font-size:25px;padding:8px 15px; color:#636b6f;">
                             <i class="fa fa-bars"></i>
                         </button>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" style="text-align: center; font-size: 18px; color: #636b6f;">
                             @each('adminlte::partials.menu-item-top-nav', $adminlte->menu(), 'item')
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
             @else
-            <!-- Logo -->
+            {{-- <!-- Logo -->
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">{!! config('adminlte.logo_mini', '<b>A</b>LT') !!}</span>
@@ -51,9 +51,9 @@
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">{{ trans('adminlte::adminlte.toggle_navigation') }}</span>
-                </a>
+                </a> --}}
             @endif
-                <!-- Navbar Right Menu -->
+                {{-- <!-- Navbar Right Menu（ログアウト）--> 
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
@@ -77,7 +77,7 @@
                             @endif
                         </li>
                     </ul>
-                </div>
+                </div> --}}
                 @if(config('adminlte.layout') == 'top-nav')
                 </div>
                 @endif
@@ -102,7 +102,7 @@
         @endif
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background-color: white">
             @if(config('adminlte.layout') == 'top-nav')
             <div class="container">
             @endif
@@ -126,6 +126,13 @@
         </div>
         <!-- /.content-wrapper -->
 
+        <footer style="position:fixed; bottom:0; width:100%; height:50px; padding: 10px 15px; text-align:center; border-top:solid 1px #d2d6de">
+            <i class="fa fa-facebook" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
+            <i class="fa fa-twitter" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
+            <i class="fa fa-google-plus-official" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
+            <i class="fa fa-youtube-play" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
+            <i class="fa fa-instagram" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
+        </footer>
     </div>
     <!-- ./wrapper -->
 @stop
