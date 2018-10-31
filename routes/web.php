@@ -19,3 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post/new', 'PostController@new')->name('new');
+Route::post('/post/ajaxUpload', 'PostController@ajaxUpload');
+Route::post('/post/detail', 'PostController@detail')->name('detail');
+
+
