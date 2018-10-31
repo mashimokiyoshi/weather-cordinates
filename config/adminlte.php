@@ -122,7 +122,7 @@ return [
         [
             'text' => 'POST',
             'url'  => 'post/new',
-            'icon' => 'plus-square',
+            'icon' => 'plus',
         ],
         [
             'text' => 'MYPAGE',
@@ -132,12 +132,7 @@ return [
         [
             'text' => 'SETTING',
             'url'  => 'user/info',
-            'icon' => 'lock',
-        ],
-        [
-            'text' => 'LOGOUT',
-            'url'  => '/',
-            'icon' => 'power-off',
+            'icon' => 'gear',
         ],
     ],
 

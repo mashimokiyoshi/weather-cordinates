@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'SHARE&HARE'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://share-hare.herokuapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -166,7 +166,7 @@ return [
 
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
-
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -216,6 +216,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        
+        /* originals */
+        'ApiClass' => 'app\Library\ApiClass',
     ],
 
 ];

@@ -34,6 +34,25 @@
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav" style="text-align: center; font-size: 18px; color: #636b6f;">
                             @each('adminlte::partials.menu-item-top-nav', $adminlte->menu(), 'item')
+                            <li>
+                                @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
+                                    <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
+                                        <i class="fa fa-fw fa-power-off"></i> LOGOUT
+                                    </a>
+                                @else
+                                    <a href="#"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    >
+                                        <i class="fa fa-fw fa-power-off"></i> LOGOUT
+                                    </a>
+                                    <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
+                                        @if(config('adminlte.logout_method'))
+                                            {{ method_field(config('adminlte.logout_method')) }}
+                                        @endif
+                                        {{ csrf_field() }}
+                                    </form>
+                                @endif
+                            </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -112,6 +131,13 @@
                 @yield('content_header')
             </section>
 
+            <!-- Main content(full-size) -->
+            <section class="full-content">
+
+                @yield('full-content')
+    
+            </section>
+
             <!-- Main content -->
             <section class="content">
 
@@ -126,13 +152,12 @@
         </div>
         <!-- /.content-wrapper -->
 
-        <footer style="position:fixed; bottom:0; width:100%; height:50px; padding: 10px 15px; text-align:center; border-top:solid 1px #d2d6de">
-            <i class="fa fa-facebook" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
-            <i class="fa fa-twitter" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
-            <i class="fa fa-google-plus-official" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
-            <i class="fa fa-youtube-play" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
-            <i class="fa fa-instagram" style="font-size:30px; color:#636b6f; padding: 0px 15px;"></i>
+        {{-- footer --}}
+        <footer>
+            @yield('footer')
         </footer>
+        {{-- /.footer --}}        
+
     </div>
     <!-- ./wrapper -->
 @stop
