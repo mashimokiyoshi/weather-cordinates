@@ -1,12 +1,10 @@
 @extends('adminlte::page')
 
 @push('css')
-{{-- CSS --}}
 <link href="{{ asset('css/post.css') }}" rel="stylesheet">
 @endpush
 
 @push('js')
-{{-- JavaScript --}}
 <script src="{{ asset('js/post.js') }}"></script>
 @endpush
 
@@ -27,8 +25,16 @@
     <div>
         <div id="upload-demo" style="display:none;"></div>
     </div>
-    <div>
-        <input type="file" id="upload">
+    <div id="noimage" style="text-align:center;">
+        <img src='https://res.cloudinary.com/hcaude7xp/image/upload/v1541083756/public/img/noimage.jpg' class="noimage">
+    </div>
+    <div style="margin-top:10px; text-align:center;">
+        <label>
+            <span class="btn btn-primary btn-flat">
+                + Choose File
+                <input type="file" id="upload" style="display:none">
+            </span>
+        </label>
     </div>
 </div>
 <form method="POST" action="detail" id="move_detail">

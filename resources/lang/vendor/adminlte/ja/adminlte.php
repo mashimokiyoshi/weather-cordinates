@@ -3,6 +3,7 @@
 return [
 
     'full_name'                   => 'フルネーム',
+    'nick_name'                   => 'ニックネーム',
     'email'                       => 'メールアドレス',
     'password'                    => 'パスワード',
     'retype_password'             => 'パスワード（再入力）',
@@ -19,4 +20,5 @@ return [
     'password_reset_message'      => 'パスワードをリセット',
     'reset_password'              => 'パスワードをリセット',
     'send_password_reset_link'    => 'パスワードリセット用のリンクを送る',
+    
 ];

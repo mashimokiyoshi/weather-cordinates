@@ -19,6 +19,7 @@ class CreatePostTable extends Migration
             $table->string('comment');
             $table->string('weather');
             $table->integer('temprature');
+            $table->string('image_id');
             $table->string('image_path');
             $table->timestamps();
         });

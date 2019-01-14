@@ -2,6 +2,7 @@ $(function(){
 
     var wW = window.innerWidth;
     
+    $('.noimage').css('width', wW);
     
     $uploadCrop = $('#upload-demo').croppie({
         enableExif: true,
@@ -18,6 +19,7 @@ $(function(){
     
     $('#upload').on('change', function () { 
         $('#upload-demo').css("display","block");
+        $('#noimage').css("display","none");
         var reader = new FileReader();
         reader.onload = function (e) {
             $uploadCrop.croppie('bind', {
@@ -39,10 +41,14 @@ $(function(){
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: {"image":resp},
                 success: function (data) {
-                    $('#image_resp').val(resp);
+                    $('#image_resp').val(data);
                     $("#move_detail").submit();
                 }
             });
         });
+    });
+
+    $('.image-post').on('click', function (ev) {
+        $("#image_upload").submit();
     });
 })

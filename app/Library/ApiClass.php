@@ -14,8 +14,9 @@ class ApiClass
      * @param int $time         (default: 600)
      * @return OpenWeatherMap\CurrentWeather
     */
-    public function getCurrentWeather($query, $lang = 'ja', $units = 'metric', $cache = false, $time = 600){
-
+    public function getWeather($city_name){
+        $lowm = new LaravelOWM();
+        return $current_weather = $lowm->getCurrentWeather($city_name);
     }
 
     /**

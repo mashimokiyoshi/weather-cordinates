@@ -3,6 +3,12 @@
     padding: 0px;
 }
 
+.full-content {
+    min-height: 0px;
+    padding: 0px 25px;
+    text-align: center;
+}
+
 .content-header {
     position: relative;
     padding: 0px;
