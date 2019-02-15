@@ -10,8 +10,6 @@
 <script src="{{ asset('js/post.js') }}"></script>
 @endpush
 
-@section('title', 'SHARE&HARE')
-    
 @section('content_header')
     <div style="float:left;"><a href="{{ action('PostController@new') }}">戻る</a></div>
     <div class="image-post" style="float:right; color: #3897f0;">投稿</div>
@@ -32,13 +30,20 @@
     <input type="submit" style="display:none">
 
     <div style="margin-top:10%;">
-        <select class="form-control" style="width:40%;">
+        <select class="form-control" style="width:40%;" id='pref' name='pref'>
             @foreach(config('pref') as $index => $name)
-                <option value="{{ $index }}">{{ $name }}</option>
+                <option value="{{ $index }}"
+                    <?php if ($name === '東京都') echo 'selected' ?>
+                >{{ $name }}</option>
             @endforeach
         </select>
     </div>
+    <div class='weather-icon'>
+        <img src="">
+        <p class="description"></p>
+        <p class="temperature"></p>
+    </div>
+    <textarea class="form-control"　name="comment" rows="3" placeholder="Enter ..."></textarea>
 
-
-
+</form>
 @stop

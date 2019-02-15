@@ -20,7 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post/new', 'PostController@new')->name('new');
 Route::post('/post/ajaxUpload', 'PostController@ajaxUpload');
+Route::post('/post/ajax_get_weather', 'PostController@ajax_get_weather');
 Route::post('/post/image_upload', 'PostController@image_upload');
 Route::post('/post/detail', 'PostController@detail')->name('detail');
 Route::get('/mypage/index', 'Mypagecontroller@index')->name('index');
+Route::get('/feed', 'FeedController@index');
+Route::post('/feed/ajax_register_favorite', 'FeedController@ajax_register_favorite');
 

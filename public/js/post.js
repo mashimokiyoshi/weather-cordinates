@@ -1,6 +1,9 @@
 $(function(){
 
     var wW = window.innerWidth;
+    if(wW > 375){
+        wW = 375;
+    }
     
     $('.noimage').css('width', wW);
     
@@ -30,7 +33,7 @@ $(function(){
     });
     
     
-    $('.upload-result').on('click', function (ev) {
+    $('.upload-result').on('click', function () {
         $uploadCrop.croppie('result', {
             type: 'canvas',
             size: 'viewport'
@@ -48,7 +51,31 @@ $(function(){
         });
     });
 
-    $('.image-post').on('click', function (ev) {
+    $('.image-post').on('click', function () {
         $("#image_upload").submit();
     });
+
+    $('#pref').on('change', function () { 
+        var city_num = $(this).val();
+        getCurrentCityWeather(city_num);
+    });
+
+    function getCurrentCityWeather(city_num) {
+        $.ajax({
+            url: 'ajax_get_weather',
+            type:'POST',
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            data: {city_num:city_num},
+        })
+        .done(function(result) {
+            console.log(result);
+            $('.weather-icon').children('img').attr('src', 'http://openweathermap.org/img/w/'+ result.weather.icon +'.png');
+            $('.description').text(result.weather.description_jp);
+            var temperature = result.temperature.day == null ?  '---' : result.temperature.day;
+            $('.temperature').text(temperature + '℃');
+        })
+        .fail(function(xhr,err){
+            alert('通信エラー');
+        });
+    }
 })
