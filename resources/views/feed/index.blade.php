@@ -11,14 +11,19 @@
 @endpush
 
 @section('content_header')
-    <h1>FEED</h1>
+    <h1>FEED
+        <select class="displayMethod" style="font-size:15px">
+            <option value="new">新着順</option>
+            <option value="favorite">人気順</option>
+        </select>
+    </h1>
 @stop
 
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <form method="POST" action="">
         {{ csrf_field() }}
-<div class="row">
+<div class="new">
     @foreach ($posts as $post)
         <div class="col-lg-3 col-xs-6" style="padding: 0px 5px; border-radius:10px;">
         <!-- small box -->

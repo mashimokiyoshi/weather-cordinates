@@ -16,7 +16,7 @@ class FeedController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -31,7 +31,7 @@ class FeedController extends Controller
                ->get();
         foreach($posts as $post){
             foreach($post->favorite->all() as $favorite){
-                $post->my_favorite = $favorite->user_id == Auth::id() ? 'favorite' : '';
+                $post->my_favorite = $favorite->user_id === Auth::id() ? 'favorite' : '';
             }
         }
 
@@ -44,17 +44,19 @@ class FeedController extends Controller
             'change' => true,
         ];
         $post_id = $request->post_id;
-        $favorite = Favorite::firstOrCreate(
-            ['post_id' => $post_id],
-            ['user_id' => Auth::id()]
-        );
-        
-        if (!$favorite->wasRecentlyCreated)
+        $favoriteRows = Favorite::where('post_id', $post_id)->where('user_id', Auth::id());
+
+        if (!empty($favoriteRows->get()[0]))
         {
-            $deletedRows = Favorite::where('user_id', Auth::id())->where('post_id', $post_id);
-            $deletedRows->delete();
+            $favoriteRows->delete();
+            return $result;
         }
-        
+        $object_favorites = new Favorite;
+        $object_favorites->user_id = Auth::id();
+        $object_favorites->post_id = $post_id;
+
+        $object_favorites->save();
+
         return $result;
     }
 }

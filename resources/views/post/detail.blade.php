@@ -26,8 +26,6 @@
 </div>
 <form method="POST" action="image_upload" id="image_upload">
     {{ csrf_field() }}
-    <input type="hidden" name="image_path" value="{{$image_data}}">
-    <input type="submit" style="display:none">
 
     <div style="margin-top:10%;">
         <select class="form-control" style="width:40%;" id='pref' name='pref'>
@@ -43,7 +41,10 @@
         <p class="description"></p>
         <p class="temperature"></p>
     </div>
-    <textarea class="form-control"　name="comment" rows="3" placeholder="Enter ..."></textarea>
+    <input type="text" class="form-control" name="comment" placeholder="Comment ...">
+    
+    <input type="hidden" name="image_path" value="{{$image_data}}">
+    <input type="submit" style="display:none">
 
 </form>
 @stop

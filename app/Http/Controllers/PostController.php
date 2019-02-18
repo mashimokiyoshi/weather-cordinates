@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -94,11 +94,13 @@ class PostController extends Controller
         // DBにINSERT
         $post = new Post;
         $post->user_id = Auth::id();
-        $post->comment = $request->comment ?? ''; //TODO: commentはnull制約外す
-        $post->weather = $current_weather->weather->id; //TODO:天気は情報的にidと天気iconは付与する
-        $post->temprature = $current_weather->temperature->day ?? 0; //温度はnullもありうる
+        $post->comment = $request->comment ?? '';
+        $post->weather = $current_weather->weather->id;
+        $post->weather_icon = $current_weather->weather->icon;
+        $post->temperature = $current_weather->temperature->day ?? null;
         $post->image_id = $image_data['public_id'];
         $post->image_path = $image_data['secure_url'];
+        $post->location = (int)$city_num;
 
         $post->save();
 
