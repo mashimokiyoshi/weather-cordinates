@@ -126,7 +126,7 @@ return [
         ],
         [
             'text' => 'MYPAGE',
-            'url'  => 'user',
+            'url'  => 'mypage',
             'icon' => 'user',
         ],
         [

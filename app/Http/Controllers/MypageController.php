@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 use App\Library\ApiClass;
-use App\UserProfile;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
@@ -16,7 +17,7 @@ class MypageController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -26,8 +27,9 @@ class MypageController extends Controller
      */
     public function index()
     {
-        
-        return view('mypage/index');
+        $user = User::where('id',Auth::id())->get()[0];
+
+        return view('mypage/index',compact('user'));
     }
 }
     
