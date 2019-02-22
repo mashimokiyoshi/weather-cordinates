@@ -8,10 +8,6 @@ class ApiClass
 {
     /**
      * @param $query            (required)
-     * @param string $lang      (default: en) - http://openweathermap.org/current#multi.
-     * @param string $units     (default: metric) - 'metric' or 'imperial'.
-     * @param bool $cache       (default: false)
-     * @param int $time         (default: 600)
      * @return OpenWeatherMap\CurrentWeather
     */
     public function getWeather($city_name){
@@ -23,15 +19,13 @@ class ApiClass
 
     /**
      * @param $query            (required)
-     * @param string $lang      (default: en) - http://openweathermap.org/current#multi.
-     * @param string $units     (default: metric) - 'metric' or 'imperial'.
-     * @param int $days         (default: 5) - maximum 16.
-     * @param bool $cache       (default: false)
-     * @param int $time         (default: 600)
      * @return OpenWeatherMap\WeatherForecast
     */
-    public function getWeatherForecast($query, $lang = 'en', $units = 'metric', $days = 5, $cache = false, $time = 600){
+    public function getWeatherForecast($city_name){
+        $lowm = new LaravelOWM();
+        $forecast = $lowm->getWeatherForecast($city_name);
 
+        return $forecast;
     }
 
     /**
@@ -43,8 +37,11 @@ class ApiClass
      * @param int $time
      * @return OpenWeatherMap\WeatherForecast
     */
-    public function getDailyWeatherForecast($query, $lang = 'en', $units = 'metric', $days = 5, $cache = false, $time = 600){
-        
+    public function getDailyWeatherForecast($city_name){
+        $lowm = new LaravelOWM();
+        $forecast = $lowm->getDailyWeatherForecast($city_name);
+        dd($forecast);
+        return $forecast;
     }
 
     /**
@@ -122,7 +119,7 @@ class ApiClass
 
         $current_weather->weather->description_jp = $description[$current_weather->weather->id];
 
-        // $current_weather->weather->icon = str_replace('n', 'd', $current_weather->weather->icon);
+        $current_weather->weather->icon = str_replace('n', 'd', $current_weather->weather->icon);
 
         return $current_weather;
     }

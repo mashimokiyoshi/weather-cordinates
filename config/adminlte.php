@@ -131,7 +131,7 @@ return [
         ],
         [
             'text' => 'SETTING',
-            'url'  => 'user/info',
+            'url'  => 'setting',
             'icon' => 'gear',
         ],
     ],

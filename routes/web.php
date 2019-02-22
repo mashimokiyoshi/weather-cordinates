@@ -26,4 +26,4 @@ Route::post('/post/detail', 'PostController@detail')->name('detail');
 Route::get('/mypage/index', 'Mypagecontroller@index')->name('index');
 Route::get('/feed', 'FeedController@index');
 Route::post('/feed/ajax_register_favorite', 'FeedController@ajax_register_favorite');
-
+Route::get('/setting', 'SettingController@index');

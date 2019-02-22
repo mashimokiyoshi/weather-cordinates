@@ -139,7 +139,9 @@
             </section>
 
             <!-- Main content -->
-            <section class="content">
+            <section class="content" style="
+            color:#636b6f;
+            letter-spacing: .1rem;">
 
                 @yield('content')
 

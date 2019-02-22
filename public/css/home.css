@@ -1,0 +1,13 @@
+.image-round{
+    display: inline-block;
+    width: 177px;
+    height: 230px;
+    border-radius: 50%;
+    background-position: center;
+    border:solid 3px #ccc;
+    padding:4px;
+}
+
+.box-header{
+    color:#636b6f;
+}
