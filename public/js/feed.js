@@ -27,4 +27,16 @@ $(function(){
         });
         
     });
+
+    $('.feed-image').on('click', function () {
+        var form = $('form');
+        form.attr('action', 'detail');
+        var image_id = $(this).data('imageid');
+        $('<input>').attr({
+            'type': 'hidden',
+            'name': 'image_id',
+            'value': image_id
+        }).appendTo(form);
+        form.submit();
+    });
 })

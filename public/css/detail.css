@@ -1,0 +1,29 @@
+.content-header {
+    padding: 10px 0px;
+    font-size: 16px;
+    color: #636b6f;
+}
+
+.content {
+    min-height: 100px;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 30px;
+}
+
+.profile-user-img {
+    margin: 0;
+    width: 30px;
+    padding: 3px;
+    border: 0px solid #d2d6de;
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}

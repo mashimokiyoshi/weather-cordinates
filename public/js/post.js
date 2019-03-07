@@ -71,7 +71,7 @@ $(function(){
             console.log(result);
             $('.weather-icon').children('img').attr('src', 'http://openweathermap.org/img/w/'+ result.weather.icon +'.png');
             $('.description').text(result.weather.description_jp);
-            var temperature = result.temperature.day == null ?  '---' : result.temperature.day;
+            var temperature = result.format_temperature == null ?  '---' : result.format_temperature;
             $('.temperature').text(temperature + '℃');
         })
         .fail(function(xhr,err){

@@ -23,6 +23,7 @@ Route::post('/post/ajaxUpload', 'PostController@ajaxUpload');
 Route::post('/post/ajax_get_weather', 'PostController@ajax_get_weather');
 Route::post('/post/image_upload', 'PostController@image_upload');
 Route::post('/post/detail', 'PostController@detail')->name('detail');
+Route::post('/detail', 'DetailController@index');
 Route::get('/mypage', 'Mypagecontroller@index')->name('index');
 Route::post('/mypage/profile', 'Mypagecontroller@profile')->name('profile');
 Route::get('/feed', 'FeedController@index');

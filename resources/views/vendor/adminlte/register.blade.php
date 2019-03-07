@@ -68,7 +68,7 @@
                         </span>
                     @endif
                 </div>
-                <button type="submit"
+                <button type="submit" style="border-radius:2px;"
                         class="btn btn-primary btn-block btn-flat"
                 >{{ trans('adminlte::adminlte.register') }}</button>
             </form>

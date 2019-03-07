@@ -1,9 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'MyPage')
-
 @section('content_header')
-    <h1>Mypage</h1>
+    <h1>MYPAGE</h1>
 @stop
 
 @section('content')
@@ -51,9 +49,9 @@
                     <div>
                         {{$post->comment}}
                     </div>
-                
                 </div>
             </div>
+            <hr style="margin: 15px 0px">
         @endforeach
     </div>
 </body>

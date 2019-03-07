@@ -49,7 +49,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <button style="font-size:12px;" type="submit"
+                        <button style="font-size:11px;border-radius:2px;" type="submit"
                                 class="btn btn-primary btn-block btn-flat">{{ trans('adminlte::adminlte.sign_in') }}</button>
                     </div>
                     <!-- /.col -->

@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-4">
                             <div class="box-tools pull-left">
-                                <div style="font-size:300%">{!! $current_weather->temperature->now !!}</div>
+                                <div style="font-size:280%">{!! $current_weather->temperature->now !!}</div>
                             </div>
                         </div>
                         <!-- /.col -->

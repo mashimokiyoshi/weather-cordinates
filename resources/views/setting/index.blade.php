@@ -4,16 +4,24 @@
 <link href="{{ asset('css/setting.css') }}" rel="stylesheet">
 @endpush
 
+@push('js')
+{{-- JavaScript --}}
+<script src="{{ asset('js/setting.js') }}"></script>
+@endpush
+
 @section('content_header')
     <h1>SETTING</h1>
 @stop
 
 @section('content')
 <div class="register-box-body" style="border:1px solid #ccc">
-    <p class="login-box-msg">{{ trans('adminlte::adminlte.register_message') }}</p>
     <form action="" method="post" autocomplete="off">
         {!! csrf_field() !!}
 
+        <div class="form-group has-feedback">
+            <img class="profile-user-img img-responsive img-circle" src="https://res.cloudinary.com/hcaude7xp/image/upload/v1550829152/no_image.png" alt="User profile picture">
+            <input type="hidden" name="user_image_path" value="">
+        </div>
         <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
             <input type="text" name="name" class="form-control" value="{{ old('name') ?? $user_data->name}}"
                    placeholder="{{ trans('adminlte::adminlte.full_name') }}">

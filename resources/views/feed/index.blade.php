@@ -22,14 +22,14 @@
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <form method="POST" action="">
-        {{ csrf_field() }}
+    {{ csrf_field() }}
 <div class="new">
     @foreach ($posts as $post)
         <div class="col-lg-3 col-xs-6" style="padding: 0px 5px; border-radius:10px;">
         <!-- small box -->
             <div class="small-box bg-black">
                 <div style="position: relative;">
-                    <img style="max-width:100%;max-height:100%;width:auto;height:auto;" src="{{ $post->image_path }}">
+                    <img style="max-width:100%;max-height:100%;width:auto;height:auto;" src="{{ $post->image_path }}" class="feed-image" data-imageid="{{$post->image_id}}">
                     <a class="favorite-icon" href="javascript:void(0);"><i class="fa fa-heart {{ $post->my_favorite }}" id="{{ $post->id }}"></i><span>{{ $post->favorite->count() }}</span></a>
                 </div>
                 <div class="small-box-footer" style="padding: 0px;">

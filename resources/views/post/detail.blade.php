@@ -27,22 +27,22 @@
 <form method="POST" action="image_upload" id="image_upload">
     {{ csrf_field() }}
 
+    <div class='weather-icon' style="margin-top:10%;">
+            <img src="http://openweathermap.org/img/w/{{ $weather_data->weather->icon }}.png">
+            <p class="description">{{ $weather_data->weather->description_jp }}</p>
+            <p class="temperature">{!! $weather_data->temperature !!}</p>
+    </div>
     <div style="margin-top:10%;">
         <select class="form-control" style="width:40%;" id='pref' name='pref'>
             @foreach(config('pref') as $index => $name)
                 <option value="{{ $index }}"
-                    <?php if ($name === '東京都') echo 'selected' ?>
+                    <?php if ($index === $weather_data->city->id) echo 'selected' ?>
                 >{{ $name }}</option>
             @endforeach
         </select>
     </div>
-    <div class='weather-icon'>
-        <img src="">
-        <p class="description"></p>
-        <p class="temperature"></p>
-    </div>
-    <input type="text" class="form-control" name="comment" placeholder="Comment ...">
-    
+    <textarea rows="3" class="form-control" name="comment" placeholder="Comment ..."  style="margin-top:10%;"></textarea>
+
     <input type="hidden" name="image_path" value="{{$image_data}}">
     <input type="submit" style="display:none">
 

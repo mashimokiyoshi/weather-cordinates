@@ -46,6 +46,13 @@ class PostController extends Controller
         $image_name= time().'.png';
         $storage_path = "/storage/" . $image_name;
         $path = public_path() . $storage_path;
+        $fiel_path = public_path() . "/storage";
+
+        if (!file_exists($fiel_path)) {
+            if (!mkdir($fiel_path, 0777)) {
+                throw new Exception("Tweet画像保存用ディレクトリの作成に失敗しました。");
+            }
+        }
 
 
         file_put_contents($path, $data);
@@ -60,7 +67,12 @@ class PostController extends Controller
         // 画像データ
         $image_data = $request->image_resp;
 
-        return view('post/detail',compact('image_data'));
+        // 天気データ
+        $city_num = 1850147;
+        $current_weather = new ApiClass();
+        $weather_data = $current_weather->getWeather((int)$city_num);
+
+        return view('post/detail',compact('image_data','weather_data'));
     }
 
     //都市ごとに天気を取得する
@@ -72,7 +84,7 @@ class PostController extends Controller
 
         $current_weather = new ApiClass();
         $result = (array)$current_weather->getWeather((int)$city_num);
-
+        $result['format_temperature'] = strstr((String)$result['temperature']->now,' ',true);
         return $result;
     }
 
@@ -83,7 +95,6 @@ class PostController extends Controller
         $city_num = $request->pref;
         $api_weather = new ApiClass();
         $current_weather = $api_weather->getWeather((int)$city_num);
-
 
         // 投稿時に画像をclouddinaryにアップロード
         $image_path = $request->image_path;
@@ -97,7 +108,7 @@ class PostController extends Controller
         $post->comment = $request->comment ?? '';
         $post->weather = $current_weather->weather->id;
         $post->weather_icon = $current_weather->weather->icon;
-        $post->temperature = $current_weather->temperature->day ?? null;
+        $post->temperature = !empty($current_weather->temperature->now) ? (int)strstr((String)$current_weather->temperature->now,' ',true): null;
         $post->image_id = $image_data['public_id'];
         $post->image_path = $image_data['secure_url'];
         $post->location = (int)$city_num;
